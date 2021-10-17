@@ -16,7 +16,7 @@ function draw() {
         .style.setProperty("--size", Math.floor(Math.random() * 2 + 1));
       $(this)
         .get(0)
-        .style.setProperty("--height", (Math.floor(Math.random() * 50) * 5) + "px");
+        .style.setProperty("--height", (Math.floor(Math.random() * 50) * 4) + "px");
       $(this)
         .get(0)
         .style.setProperty("--angle", (Math.floor(Math.random() * 4) * 90) + "deg");
@@ -311,7 +311,7 @@ jQuery(function($) {
     /* fac.TopMain.Trains */
     fac.TopMain.Trains = function(target) {this.initialize(target);
     };
-    fac.TopMain.Trains.Path = $('<svg><path class="st0" d="M-297.1,1645.9c0,0,1094.8,788.2,1429.2,1020.4c288.5,200.3,864.8,231.5,1210.1,113.8c356.8-121.6,761.8-299.6,4761.8-550.6,9761.8-990.6"/></svg>').find("path")[0]
+    fac.TopMain.Trains.Path = $('<svg><path class="st0" d="M-297.1,1645.9c0,0,1094.8,788.2,1429.2,1020.4c288.5,200.3,864.8,231.5,1210.1,113.8c356.8-121.6,761.8-299.6,4761.8-400.6,9761.8-450.6"/></svg>').find("path")[0]
     fac.TopMain.Trains.prototype = {
         target: null,
         front: null,
@@ -338,8 +338,8 @@ jQuery(function($) {
         start: function(delay) {
             var delay = delay || 1500;
             this.front.run(delay);
-            this.middle.run(delay + 33);//57
-            this.back.run(delay + 33.7 * 2);//57.7*2
+            this.middle.run(delay + 31);//57
+            this.back.run(delay + 31.7 * 2);//57.7*2
         },
 
         offset: function(position, position_max) {
