@@ -2,21 +2,14 @@
 	-webkit-box-sizing: inherit;
 	        box-sizing: inherit;
 }
-html, body {
-	width: 100%;
-	min-height: 100%;
-}
+html, body {width: 100%;min-height: 100%;}
 html {
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
 	overflow-x: hidden;
   overflow-y: scroll;
 }
-body{
-  width:100%;
-  padding:0;
-  margin:0;
-}
+body{width:100%;padding:0;margin:0;}
 #top_main {
 	position:relative;
   display: flex;
@@ -32,11 +25,19 @@ body{
   perspective: 2000px;
   background:#00ffff;
 }
-#top_main * {
-  transform-style: preserve-3d;
-}
-#top_main *:before, #top_main *:after {
-  transform-style: preserve-3d;
+#top_main * {transform-style: preserve-3d;}
+#top_main *:before, #top_main *:after {transform-style: preserve-3d;}
+.background{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: block;
+	width: auto;
+	min-width: 500%;
+	height: auto;
+	min-height: 500%;
+	-webkit-transform: translate3d(-50%, -50%, 0) scale(.2);
+	        transform: translate3d(-50%, -50%, 0) scale(.2);
 }
 #top_main .wrap {
   width:100%;
@@ -55,13 +56,13 @@ body{
   left: 0;
   top: 0;
   transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  /*-webkit-backface-visibility: hidden;
+          backface-visibility: hidden;*/
   display: grid;
   grid-template-columns: repeat(8, 10%);
   grid-template-rows: repeat(8, 10%);
   transform: rotate(-135deg);
-  box-shadow: 0 0 0 100vw #001033, inset 0 0 0 100vw #010033;/*フィールドカラー*/
+  box-shadow: 0 0 0 100vw #232b5a, inset 0 0 0 100vw #232b5a;/*フィールドカラー*/
 	border-radius:20%;
 }
 #top_main .wrap .grid:before {
@@ -88,8 +89,8 @@ body{
   background: #888;/*トップカラー*/
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
   transition: 1.8s ease-in-out;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  /*-webkit-backface-visibility: hidden;
+          backface-visibility: hidden;*/
   grid-row-end: span var(--size);
   grid-column-end: span var(--size);
   will-change: transform;
@@ -165,16 +166,6 @@ body{
 .wrap .grid .cell:nth-of-type(62) {transition-delay: 1.0333333333s;}
 .wrap .grid .cell:nth-of-type(63) {transition-delay: 1.05s;}
 .wrap .grid .cell:nth-of-type(64) {transition-delay: 1.0666666667s;}
-/*.city .wrap .grid .cell.class11 {
-  transform: scale(0.75) translateY(calc(-100% - var(--shift))) translateX(calc(-100% + var(--shift))) translateZ(calc(var(--height) * 1.3));
-}
-.city .wrap .grid .cell.class11:before {
-  height: calc(var(--height) * 1.3);
-}
-.city .wrap .grid .cell.class11:after {
-  width: calc(var(--height) * 1.3);
-  left: calc(var(--height) * -1.3);
-}*/
 #top_main .wrap .grid .cell.class1:before, #top_main .wrap .grid .cell.class4:before,#top_main .wrap .grid .cell.class8:before {
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15), inset 0 0 0 15px #d0e0f0;
   background: repeating-linear-gradient(to bottom, #cba, #baa 5px, rgba(255, 255, 255, 0.0001) 5px, rgba(255, 255, 255, 0.0001) 15px, #ccc 15px, #ccc 20px), repeating-linear-gradient(to right, #bcb, #bcb 5px, rgba(255, 255, 255, 0.0001) 5px, rgba(255, 255, 255, 0.0001) 15px, #bcb 15px, #bcb 20px), #888;
@@ -276,7 +267,6 @@ body{
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
-
 @media all and (max-width:1400px){
   #top_main .wrap {
     width:100%;
@@ -285,20 +275,18 @@ body{
     max-height:240px;
     position: relative;
     transform: translateY(50px) translateX(50px) rotateX(75deg);
-    -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
   }
 }
 @media all and (max-width:545px){
 	#top_main{
-		padding-bottom:200px;
+		padding-bottom:240px;
 	}
 	#top_main .wrap {
-	  position: relative;
-	  transform: translateY(150px) translateX(45px) rotateX(75deg);
+		position: relative;
+		transform: translateY(100px) translateX(45px) rotateX(75deg);
 	}
 	#top_main .wrap .grid {
-		box-shadow: 0 0 0 150vw #010033, inset 0 0 0 150vw #010033;
+		box-shadow: 0 0 0 280vw #232b5a, inset 0 0 0 280vw #232b5a;
 	}
 	.wrap .grid .cell:nth-of-type(1) {display:none;opacity:0;}
 	.wrap .grid .cell:nth-of-type(2) {display:none;opacity:0;}
@@ -326,33 +314,16 @@ body{
 	.wrap .grid .cell:nth-of-type(23) {display:none;opacity:0;}
 	.wrap .grid .cell:nth-of-type(24) {display:none;opacity:0;}
 	.wrap .grid .cell:nth-of-type(25) {display:none;opacity:0;}
-	/*.wrap .grid .cell:nth-of-type(54) {display:none;opacity:0;}
-	.wrap .grid .cell:nth-of-type(55) {display:none;opacity:0;}
-	.wrap .grid .cell:nth-of-type(56) {display:none;opacity:0;}
-	.wrap .grid .cell:nth-of-type(57) {display:none;opacity:0;}
-	.wrap .grid .cell:nth-of-type(58) {display:none;opacity:0;}
-	.wrap .grid .cell:nth-of-type(59) {display:none;opacity:0;}
-	.wrap .grid .cell:nth-of-type(60) {display:none;opacity:0;}
-	.wrap .grid .cell:nth-of-type(61) {display:none;opacity:0;}
-	.wrap .grid .cell:nth-of-type(62) {display:none;opacity:0;}
-	.wrap .grid .cell:nth-of-type(63) {display:none;opacity:0;}
-	.wrap .grid .cell:nth-of-type(64) {display:none;opacity:0;}*/
 }
 @media all and (max-width:420px){
-	#top_main .wrap{height:40%;}
-	#top_main .wrap .grid {}
-}
-@media all and (max-width:401px){
-	#top_main .wrap{}
-}
-@media all and (max-width:380px){
-	#top_main .wrap{}
+	#top_main{padding-bottom:265px;}
+	#top_main .wrap{height:40%;
+		transform: translateY(170px) translateX(45px) rotateX(75deg);
+	}
 }
 @media all and (max-width:330px){
-	#top_main .wrap{transform: translateY(140px) translateX(90px) rotateX(75deg);}
-}
-@media all and (max-width:290px){
-
+	#top_main{padding-bottom:245px;}
+	#top_main .wrap{transform: translateY(160px) translateX(90px) rotateX(75deg);}
 }
 /**/
 /**/
@@ -364,19 +335,6 @@ body{
 	height: 0;
 	padding: 59.6125% 0 0;
 }
-/*.image::after {
-	position: absolute;
-	z-index: 3;
-	top: 22.5%;
-	left: 14.6%;
-	display: block;
-	width: 6.5583%;
-	height: 0;
-	padding: 2.9810% 0 0;
-	content: "";
-	background: url(../image/top_main_smoke-cover.png) no-repeat;
-	background-size: contain;
-}*/
 #top_main > .image * {
 	position: absolute;
 	-webkit-user-select: none;
@@ -419,9 +377,6 @@ body{
 	background: url(../image/windmill_wing.png) no-repeat;
 	background-size: contain;
 }
-/*#top_main > .image .windmills > .a {
-	left: 18.8%;
-}*/
 #top_main > .image .windmills > .b {
 	left: 25.2%;
 }
@@ -435,12 +390,6 @@ body{
 #top_main > .image .windmills > .e {
 	left: 36.7%;
 }
-/*#top_main > .image .windmills > .a::after {
-	-webkit-animation-duration: 12.1s;
-	        animation-duration: 12.1s;
-	-webkit-animation-delay: -.5s;
-	        animation-delay: -.5s;
-}*/
 #top_main > .image .windmills > .b::after {
 	-webkit-animation-duration: 9.8s;
 	        animation-duration: 9.8s;
@@ -486,7 +435,6 @@ body{
 #top_main > .image .trains::before {
 	top: 0.25%;
 	left: 0;
-
 	width: 0%;
 	padding: 0% 0 0;
 }
@@ -507,16 +455,11 @@ body{
 	-webkit-transform: translate3d(-50%, -50%, 0);
 	        transform: translate3d(-50%, -50%, 0);
 	background-size: 1000% auto;
+	z-index: 30;
 }
-#top_main > .image .trains > .back {
-	background-image: url(../image/train_back.png);
-}
-#top_main > .image .trains > .middle {
-	background-image: url(../image/train_middle.png);
-}
-#top_main > .image .trains > .front {
-	background-image: url(../image/train_front.png);
-}
+#top_main > .image .trains > .back{background-image: url(../image/train_back.png);}
+#top_main > .image .trains > .middle {background-image: url(../image/train_middle.png);}
+#top_main > .image .trains > .front {background-image: url(../image/train_front.png);}
 #top_main > .image .airplane {
 	z-index: 4;
 	top: 19%;
@@ -531,7 +474,7 @@ body{
 	        transform: translate3d(-100%, -50%, 0);
 	-webkit-animation: top_main-airplane 30s steps(750, start) 0s infinite;
 	        animation: top_main-airplane 30s steps(750, start) 0s infinite;
-	background-image: url(../image/airplane1.png);
+	background-image: url(../image/airplane.png);
 	background-size: contain;
 }
 @-webkit-keyframes top_main-windmill {
@@ -554,7 +497,6 @@ body{
 		        transform: translate3d(-50%, -50%, 0) rotate(360deg);
 	}
 }
-
 @-webkit-keyframes top_main-kakukaku {
 	0% {margin-top: 0;}
 	25% {margin-top: .5px;}
@@ -594,16 +536,139 @@ body{
 	    -ms-transform: none;
 	        transform: none;
 }
-@media all and (min-width: 1141px) {
-	.image, .image::after, .image .windmills > div::after, .image .tanker, .image .trains::before, .image .trains::after {
-		-webkit-backface-visibility: hidden;
-		        backface-visibility: hidden;
-		image-rendering: -webkit-optimize-contrast;
+.traffic_motion {
+	z-index:33;
+	position:absolute;
+	top:57%;
+	left:60%;
+  background: url(../image/traffic_motion2.svg) no-repeat;
+  width: 157px;
+  height:170px;
+  margin: 0 auto;
+  animation: traffic 17.85s steps(66) 0.5s infinite;
+	transform: scale(0.5);
+}
+@keyframes traffic {
+  0%{background-position: 0 0;}
+	0.82%{background-position: 0 0;}
+  100% {
+    background-position: -10362px 0;
+  }
+}
+#balloon{
+  z-index:33;
+  position:absolute;
+  top:51%;
+  left:81%;
+  background:url(../image/balloon.svg) no-repeat;
+  width:16px;
+  height:35.6px;
+	animation:balloon 5.5s linear 4s infinite;
+}
+@keyframes balloon{
+	0%{transform: translateY(0px) scale(1);}
+	33.333%{transform: translateY(0px) scale(1);}
+	100%{transform: translateY(-800px) scale(0.2);}
+}
+#family{
+	z-index:33;
+  position:absolute;
+  top:50%;
+  left:77%;
+	background:url(../image/family.svg) no-repeat;
+	width:115px;
+  height:77px;
+}
+
+#cyclist{
+   display: inline-block;
+	 overflow: hidden;
+   position:absolute;
+	 top:74%;
+	 left:50%;
+	 z-index:100;
+   animation:moving 8.8s linear infinite;
+}
+@keyframes moving {
+  to{transform: translate(780px,-50px) scale(0.9);}
+}
+
+@media all and (max-width:1400px){
+	.background{
+		margin-top:9px;
+	}
+	.traffic_motion {
+		top:53%;
+		left:58%;
+		animation: traffic 14.60s steps(66) 0s  infinite;
+	}
+	#balloon{
+    left:83%;
+	}
+	#cyclist{
+		transform: scale(0.70);
+		top:74%;
+		left:56%;
 	}
 }
 @media all and (max-width:545px){
-	#top_main > .image .trains > div {
-		margin-top:80px;
+	.traffic_motion {
+		top:55%;
+		left:48%;
+		animation: traffic 12.85s steps(66) 3.3s infinite;
+		transform: scale(0.4);
+	}
+	.background{display:none;}
+	#top_main > .image .windmills > div {top: 12.6%;}
+	#top_main > .image .windmills > .d {top: 12.8%;}
+	#top_main > .image .trains > div {margin-top:80px;}
+	#balloon{
+		top:64%;
+    left:33%;
+	}
+	#family{
+		transform: scale(0.6);
+	  top:63%;
+	  left:20%;
+	}
+	#cyclist{
+		transform: scale(0.44);
+		top:77%;
+		left:0%;
+	}
+	@keyframes moving {
+	  to{transform: translate(560px,-50px) scale(0.8);}
+	}
+}
+@media all and (max-width:420px){
+	#cyclist{
+		top:76%;
+	}
+	#balloon{
+		top:64%;
+		left:29.5%;
+	}
+}
+@media all and (max-width:380px){
+	#balloon{
+		top:66%;
+    left:30%;
+	}
+	#cyclist{
+		transform: scale(0.42);
+		top:78%;
+	}
+}
+@media all and (max-width:365px){
+	#balloon{
+		top:66%;
+    left:29.9%;
+	}
+}
+@media all and (max-width:330px){
+	#balloon{
+		top:65%;
+    left:31%;
 	}
 }
 /**/
@@ -616,4 +681,26 @@ body{
   width: 20%;
   max-height: 20%;
   margin-top: 0px;
+}
+#iso_anim {
+  position: absolute;
+  width:100%;
+  height:100%;
+  overflow-x: hidden;
+  z-index:100;
+}
+#iso_anim.green_car,#iso_anim.bus,#iso_anim.bike,#iso_anim.drone{
+  transform: scale(0.6);
+}
+.cls-30,.cls-31{z-index: 2;}
+@media all and (max-width:1400px){
+}
+@media all and (max-width:545px){
+  #iso_anim{padding-top:480px;width:160vw;height:160vh;}
+}
+@media all and (max-width:400px){
+	#iso_anim{padding-top:480px;width:170vw;height:170vh;}
+}
+@media all and (max-width:330px){
+	#iso_anim{padding-top:490px;}
 }
